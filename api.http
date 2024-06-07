@@ -1,0 +1,36 @@
+POST http://localhost:3333/events
+Content-Type: application/json
+
+{
+    "title": "Novo Evento 2",
+    "details": "Null",
+    "maximumAttendees": 1
+}
+
+####
+
+POST http://localhost:3333/events/6a3decbf-d401-4658-a18a-fd3599f6f769/attendees
+Content-Type: application/json
+
+{
+    "name": "Beatriz Santos",
+    "email": "beatriz2@gmail.com"
+}
+
+###
+GET http://localhost:3333/events/6a3decbf-d401-4658-a18a-fd3599f6f769 
+
+####
+
+GET http://localhost:3333/attendees/5/badge
+
+
+####
+
+GET http://localhost:3333/attendees/5/check-in
+
+
+####
+
+GET http://localhost:3333/events/6a3decbf-d401-4658-a18a-fd3599f6f769/attendees?query=beatriz
+
