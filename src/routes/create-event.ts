@@ -3,6 +3,7 @@ import {z} from "zod"
 import { generateSlug } from "../utils/generate-slug"
 import { prisma } from "../lib/prisma"
 import { FastifyInstance } from "fastify"
+import { BadRequest } from "./_errors/bad-request"
 
 export async function createEvent(app: FastifyInstance) {
     app
@@ -38,7 +39,7 @@ export async function createEvent(app: FastifyInstance) {
         })
 
         if (eventWithSameSlug !== null) {
-            throw new Error('Another event with same title already exist.')
+            throw new BadRequest('Another event with same title already exist.')
         }
 
         const event = await prisma.event.create({
